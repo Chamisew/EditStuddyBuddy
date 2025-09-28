@@ -1,0 +1,93 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --brand-500: #39b57a;
+  --brand-600: #2f9b67;
+  --muted: #6b7280;
+}
+
+/* Reusable component helpers */
+@layer components {
+  .card{
+    @apply bg-white rounded-xl2 p-4;
+    box-shadow: 0 8px 24px rgba(16,24,40,0.06);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+  }
+
+  .card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(16,24,40,0.08);
+  }
+
+  .btn-primary{
+    @apply inline-flex items-center justify-center text-white px-4 py-2 rounded-lg;
+    background-image: linear-gradient(90deg, #2f9b67 0%, #39b57a 100%);
+    box-shadow: 0 8px 20px rgba(57,181,122,0.18);
+    transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+  }
+
+  .btn-primary:active{
+    transform: translateY(1px) scale(0.998);
+    opacity: 0.98;
+  }
+  .btn-ghost{
+    @apply inline-flex items-center justify-center bg-white border border-gray-100 text-gray-700 px-3 py-1 rounded-md;
+    transition: background-color 120ms ease, transform 120ms ease;
+  }
+
+  .btn-ghost:hover{
+    background-color: #f8faf9;
+    transform: translateY(-1px);
+  }
+
+  /* Accessible focus states */
+  .btn-primary:focus-visible,
+  .btn-ghost:focus-visible,
+  .card:focus-visible {
+    outline: 3px solid rgba(57,181,122,0.14);
+    outline-offset: 3px;
+  }
+
+  /* Input helper */
+  .form-input{
+    @apply px-3 py-2 rounded-md bg-white border border-gray-200 text-gray-800;
+    transition: box-shadow 120ms ease, border-color 120ms ease, transform 120ms ease;
+  }
+
+  .form-input:focus{
+    box-shadow: 0 6px 18px rgba(57,181,122,0.08);
+    border-color: #39b57a;
+    transform: translateY(-1px);
+  }
+
+  .badge{
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-brand-50 text-brand-700;
+    border: 1px solid rgba(52,211,153,0.06);
+  }
+
+  body{
+    @apply bg-gray-50;
+    color: #0f172a;
+  }
+
+  /* layout utility */
+  .container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
